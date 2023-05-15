@@ -16,6 +16,13 @@ AND `departments`.`name`= "Dipartimento di Neuroscienze";
 3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
 
 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
+SELECT `students`.`surname` AS `student_surname`, `students`.`name` AS `student_name`, `students`.`enrolment_date` AS `enrolment_date`, `degrees`.`name` AS `degree_name`, `departments`.`name` AS `department_name` 
+FROM `departments` 
+JOIN `degrees` 
+ON `departments`.`id` = `degrees`.`department_id` 
+JOIN `students` 
+ON `degrees`.`id` = `students`.`degree_id` 
+ORDER BY `student_surname` ASC, `student_name`
 
 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
 
